@@ -1,4 +1,4 @@
-package com.testNgConcepts;
+package com.testNgTestCases;
 
 import org.testng.annotations.Test;
 
@@ -31,6 +31,17 @@ public class TestNgClass2 {
 	  String expectedtitle ="Welcome to Green Mountain Outpost";
 	  System.out.println(Actualtitle);
 	  Assert.assertEquals(Actualtitle, expectedtitle);
+  }
+  
+  @Test(priority=0)
+  public void ValidateOnLineCatalogLoadedSuccessfully(){
+	  System.out.println("inside ValidateOnLineCatalogLoadedSuccessfully");
+	  driver.findElement(By.name("bSubmit")).click();
+	  driver.findElement(By.xpath("//input[@type='text' and @name='QTY_BACKPACKS']")).sendKeys("4");
+	  //table/tbody/tr[3]/td[3]
+	
+	  String qtyPriceFrameBackpack = driver.findElement(By.xpath("//*[contains(text(),'$ 179.95')]")).getText();
+	  System.out.println(qtyPriceFrameBackpack);
   }
   
   
