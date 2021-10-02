@@ -5,7 +5,7 @@ public class javaBasics {
 	static int val=18;
 	
 	public void add(){
-	//	static int a=10; //A local variable cannot be defined with "static" keyword.
+		//static int a=10; //A local variable cannot be defined with "static" keyword.
 		int b=30;
 	}
 	

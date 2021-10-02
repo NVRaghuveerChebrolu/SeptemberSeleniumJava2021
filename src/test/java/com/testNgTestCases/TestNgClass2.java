@@ -1,6 +1,7 @@
 package com.testNgTestCases;
 
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -20,6 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
@@ -31,12 +33,13 @@ public class TestNgClass2 {
   public void validateGMOonlineLoadedSuccessfully() {
 	  System.out.println("inside validateGMOonlineLoadedSuccessfully");
 	  String Actualtitle=driver.getTitle();
-	  String expectedtitle ="Welcome to Green Mountain Outpos";
+	  String expectedtitle ="Welcome to Green Mountain Outpost";
 	  System.out.println(Actualtitle);
 	  Assert.assertEquals(Actualtitle, expectedtitle);
   }
   
-  @Test(priority=0)
+  @Parameters
+  @Test(priority=0,dependsOnMethods={"validateGMOonlineLoadedSuccessfully"})
   public void ValidateOnLineCatalogLoadedSuccessfully(){
 	  System.out.println("inside ValidateOnLineCatalogLoadedSuccessfully");
 	  driver.findElement(By.name("bSubmit")).click();
@@ -47,21 +50,30 @@ public class TestNgClass2 {
 	  driver.findElement(By.xpath("//input[@value='Place An Order']")).click();
   }
   
-  @Test
+  @Test(priority=1,dependsOnMethods={"ValidateOnLineCatalogLoadedSuccessfully"})
   public void ValidatePriceCalculationInPlaceorderPage(){
 	  System.out.println("inside ValidatePriceCalculationInPlaceorderPage");
 	  String ActualTitle=driver.findElement(By.xpath("//h1[contains(text(),'Place Order')]")).getText();
-	  String ExpectedTile = "Place Order";
-	  Assert.assertEquals(ActualTitle, ExpectedTile);
+	  String ExpectedTile = "Place Orde";
+	  //Assert.assertEquals(ActualTitle, ExpectedTile);
+	  SoftAssert sAssert = new SoftAssert();
+	  sAssert.assertEquals(ActualTitle, ExpectedTile);
 	  String UnitPriceBackPack = driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]")).getText();
 	  String PriceQtyBackPack = UnitPriceBackPack.substring(2).trim();
 	  System.out.println(PriceQtyBackPack);
 	  Float ExpectedTotalPriceBackPack = Float.parseFloat(PriceQtyBackPack)*4;
 	  System.out.println("ExpectedTotalPriceBackPack:"+ExpectedTotalPriceBackPack);
 	  String AcutalTotalPriceBackPack  = driver.findElement(By.xpath("//table/tbody/tr[2]/td[5]")).getText().substring(2).trim();
-	  Float ExpectedPrice=Float.parseFloat(AcutalTotalPriceBackPack);
-	  System.out.println("ExpectedPrice:"+ExpectedPrice);
-	  Assert.assertEquals(ExpectedPrice, ExpectedTotalPriceBackPack);
+	  Float ActualPrice=Float.parseFloat(AcutalTotalPriceBackPack);
+	  System.out.println("ActualPrice:"+ActualPrice);
+	  Assert.assertEquals(ActualPrice, ExpectedTotalPriceBackPack);
+	  sAssert.assertAll();// this should be declared at the last line of the testcase
+  }
+  
+  @Test(priority=2)
+  public void ValidateAllorders(){
+	  driver.get("http://demo.borland.com/gmopost/online-catalog.htm");
+	  
   }
   
   @BeforeMethod

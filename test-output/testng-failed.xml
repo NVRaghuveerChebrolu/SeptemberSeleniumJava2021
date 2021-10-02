@@ -11,7 +11,9 @@
           <include name="afterClass"/>
           <include name="beforeSuite"/>
           <include name="afterSuite"/>
+          <include name="ValidatePriceCalculationInPlaceorderPage"/>
           <include name="afterMethod"/>
+          <include name="ValidateOnLineCatalogLoadedSuccessfully"/>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
         </methods>
