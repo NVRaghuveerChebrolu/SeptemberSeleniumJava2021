@@ -48,6 +48,8 @@ public class TestNgClass2 {
 	  String qtyPriceFrameBackpack = driver.findElement(By.xpath("//*[contains(text(),'$ 179.95')]")).getText();
 	  System.out.println(qtyPriceFrameBackpack);
 	  driver.findElement(By.xpath("//input[@value='Place An Order']")).click();
+	  
+
   }
   
   @Test(priority=1,dependsOnMethods={"ValidateOnLineCatalogLoadedSuccessfully"})
