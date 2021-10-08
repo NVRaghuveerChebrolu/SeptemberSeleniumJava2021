@@ -8,9 +8,9 @@ public class enumSwitch {
 	}
 
 	public static void main(String args[]) {
-		Day[] DayNow = Day.values();
-		for (Day Now : DayNow) {
-			switch (Now) {
+		Day[] AllDays = Day.values();
+		for (Day IndividualDay : AllDays) {
+			switch (IndividualDay) {
 			case Sun:
 				System.out.println("Sunday");
 				break;

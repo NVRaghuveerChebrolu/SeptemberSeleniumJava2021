@@ -3,21 +3,22 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.testNgTestCases.TestNgClass2">
+      <class name="com.testNgTestCases.TestNgClass3">
         <methods>
-          <include name="beforeTest"/>
-          <include name="afterTest"/>
           <include name="validateGMOonlineLoadedSuccessfully"/>
-          <include name="afterClass"/>
+          <include name="afterTest"/>
           <include name="beforeSuite"/>
-          <include name="afterSuite"/>
-          <include name="ValidatePriceCalculationInPlaceorderPage"/>
-          <include name="afterMethod"/>
           <include name="ValidateOnLineCatalogLoadedSuccessfully"/>
-          <include name="beforeMethod"/>
+          <include name="beforeTest"/>
+          <include name="afterMethod"/>
           <include name="beforeClass"/>
+          <include name="beforeMethod"/>
+          <include name="afterSuite"/>
+          <include name="afterClass"/>
+          <include name="ValidateAllorders"/>
+          <include name="ValidatePriceCalculationInPlaceorderPage"/>
         </methods>
-      </class> <!-- com.testNgTestCases.TestNgClass2 -->
+      </class> <!-- com.testNgTestCases.TestNgClass3 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
