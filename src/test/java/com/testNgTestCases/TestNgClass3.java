@@ -16,6 +16,7 @@ import static org.testng.Assert.assertEquals;
 import java.io.FileNotFoundException;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -30,7 +31,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
 
 public class TestNgClass3 extends library{
-	WebDriver driver;
+	//WebDriver driver;
 	
   @Test(priority=-1)
   public void validateGMOonlineLoadedSuccessfully() {
@@ -59,7 +60,7 @@ public class TestNgClass3 extends library{
   public void ValidatePriceCalculationInPlaceorderPage(){
 	  System.out.println("inside ValidatePriceCalculationInPlaceorderPage");
 	  String ActualTitle=driver.findElement(By.xpath("//h1[contains(text(),'Place Order')]")).getText();
-	  String ExpectedTile = "Place Orde";
+	  String ExpectedTile = "Place Order";
 	  //Assert.assertEquals(ActualTitle, ExpectedTile);
 	  SoftAssert sAssert = new SoftAssert();
 	  sAssert.assertEquals(ActualTitle, ExpectedTile);
@@ -76,8 +77,11 @@ public class TestNgClass3 extends library{
   }
   
   @Test(priority=2)
-  public void ValidateAllorders(){
-	  driver.get("http://demo.borland.com/gmopost/online-catalog.htm");
+  public void ValidateHandlingAlerts(){
+	  System.out.println("inside ValidateHandlingAlerts");
+	  driver.get(objprop.getProperty("AlertURL"));
+	  //driver.switchTo().alert();
+	
 	  
   }
   
@@ -104,6 +108,8 @@ public class TestNgClass3 extends library{
   @BeforeTest
   public void beforeTest() {
 	  System.out.println("inside beforeTest");
+	  library.LaunchBrowser();
+	  
   }
 
   @AfterTest

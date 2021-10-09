@@ -15,7 +15,6 @@
           <include name="beforeMethod"/>
           <include name="afterSuite"/>
           <include name="afterClass"/>
-          <include name="ValidateAllorders"/>
           <include name="ValidatePriceCalculationInPlaceorderPage"/>
         </methods>
       </class> <!-- com.testNgTestCases.TestNgClass3 -->
