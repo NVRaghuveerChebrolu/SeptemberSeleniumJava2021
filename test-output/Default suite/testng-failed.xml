@@ -5,17 +5,15 @@
     <classes>
       <class name="com.testNgTestCases.TestNgClass3">
         <methods>
-          <include name="validateGMOonlineLoadedSuccessfully"/>
           <include name="afterTest"/>
           <include name="beforeSuite"/>
-          <include name="ValidateOnLineCatalogLoadedSuccessfully"/>
+          <include name="ValidateHandlingAlerts"/>
           <include name="beforeTest"/>
           <include name="afterMethod"/>
           <include name="beforeClass"/>
           <include name="beforeMethod"/>
           <include name="afterSuite"/>
           <include name="afterClass"/>
-          <include name="ValidatePriceCalculationInPlaceorderPage"/>
         </methods>
       </class> <!-- com.testNgTestCases.TestNgClass3 -->
     </classes>

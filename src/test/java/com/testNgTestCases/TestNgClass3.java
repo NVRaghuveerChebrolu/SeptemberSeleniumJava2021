@@ -20,6 +20,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -80,8 +81,38 @@ public class TestNgClass3 extends library{
   public void ValidateHandlingAlerts(){
 	  System.out.println("inside ValidateHandlingAlerts");
 	  driver.get(objprop.getProperty("AlertURL"));
-	  //driver.switchTo().alert();
-	
+	  driver.findElement(By.id("alertButton")).click();
+	  Alert objalertButton= driver.switchTo().alert();
+	  String alertButtonText=objalertButton.getText();
+	  System.out.println(alertButtonText);
+	  Assert.assertEquals(alertButtonText, "You clicked a button");
+	  objalertButton.accept();
+	  
+	  driver.findElement(By.id("timerAlertButton")).click();
+	  //Explict wait : applicable for one webElement
+	  WebDriverWait wait = new WebDriverWait(driver,30);
+	  wait.until(ExpectedConditions.alertIsPresent());
+	  
+	  Alert objTimerAlertbutton= driver.switchTo().alert();
+	  String TimerAlertText=objTimerAlertbutton.getText();
+	  System.out.println("TimerAlertText: "+TimerAlertText);	
+	  Assert.assertEquals(TimerAlertText, "This alert appeared after 5 seconds");
+	  objTimerAlertbutton.accept();
+	  
+	  driver.findElement(By.id("confirmButton")).click();
+	  Alert ConfirmAction=driver.switchTo().alert();
+	  ConfirmAction.dismiss();
+	  String ConfirmActionText=driver.findElement(By.xpath("//span[@id='confirmResult']")).getText();
+	  System.out.println("ConfirmActionText: "+ConfirmActionText);
+	  Assert.assertEquals(ConfirmActionText, "You selected Cancel");
+	  
+	  driver.findElement(By.id("promtButton")).click();
+	  Alert promtButton=driver.switchTo().alert();
+	  promtButton.sendKeys("HI Typing inside alert box");
+	  promtButton.accept();
+	  String promtResult=driver.findElement(By.xpath("//span[@id='promptResult']")).getText();
+	  System.out.println("promtResult: "+promtResult);
+	  Assert.assertEquals(promtResult, "You entered HI Typing inside alert box");
 	  
   }
   
