@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
+<testng-results skipped="0" failed="0" ignored="4" total="5" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="17028" started-at="2021-10-12T02:24:06Z" finished-at="2021-10-12T02:24:24Z">
+  <suite name="Default suite" duration-ms="85904" started-at="2021-10-14T02:44:24Z" finished-at="2021-10-14T02:45:50Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="17028" started-at="2021-10-12T02:24:06Z" finished-at="2021-10-12T02:24:24Z">
-      <class name="com.testNgTestCases.TestNgClass3">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.testNgTestCases.TestNgClass3@4dfa3a9d]" name="beforeSuite" is-config="true" duration-ms="35" started-at="2021-10-12T02:24:06Z" finished-at="2021-10-12T02:24:06Z">
+    <test name="Default test" duration-ms="85904" started-at="2021-10-14T02:44:24Z" finished-at="2021-10-14T02:45:50Z">
+      <class name="com.testNgTestCases.TestNgClass4">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.testNgTestCases.TestNgClass4@13deb50e]" name="beforeSuite" is-config="true" duration-ms="37" started-at="2021-10-14T02:44:24Z" finished-at="2021-10-14T02:44:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.testNgTestCases.TestNgClass3@4dfa3a9d]" name="beforeTest" is-config="true" duration-ms="5452" started-at="2021-10-12T02:24:06Z" finished-at="2021-10-12T02:24:12Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.testNgTestCases.TestNgClass4@13deb50e]" name="beforeTest" is-config="true" duration-ms="10973" started-at="2021-10-14T02:44:24Z" finished-at="2021-10-14T02:44:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.testNgTestCases.TestNgClass3@4dfa3a9d]" name="beforeClass" is-config="true" duration-ms="0" started-at="2021-10-12T02:24:12Z" finished-at="2021-10-12T02:24:12Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.testNgTestCases.TestNgClass4@13deb50e]" name="beforeClass" is-config="true" duration-ms="0" started-at="2021-10-14T02:44:35Z" finished-at="2021-10-14T02:44:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.testNgTestCases.TestNgClass3@4dfa3a9d]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2021-10-12T02:24:12Z" finished-at="2021-10-12T02:24:12Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.testNgTestCases.TestNgClass4@13deb50e]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2021-10-14T02:44:35Z" finished-at="2021-10-14T02:44:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="ValidateHandlingAlerts()[pri:2, instance:com.testNgTestCases.TestNgClass3@4dfa3a9d]" name="ValidateHandlingAlerts" duration-ms="11534" started-at="2021-10-12T02:24:12Z" finished-at="2021-10-12T02:24:23Z">
+        <test-method status="PASS" signature="ValidtateHandlingOfFrames()[pri:3, instance:com.testNgTestCases.TestNgClass4@13deb50e]" name="ValidtateHandlingOfFrames" duration-ms="74892" started-at="2021-10-14T02:44:35Z" finished-at="2021-10-14T02:45:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ValidateHandlingAlerts -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.testNgTestCases.TestNgClass3@4dfa3a9d]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-10-12T02:24:23Z" finished-at="2021-10-12T02:24:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.testNgTestCases.TestNgClass3@4dfa3a9d]" name="afterClass" is-config="true" duration-ms="2" started-at="2021-10-12T02:24:23Z" finished-at="2021-10-12T02:24:24Z">
+        </test-method> <!-- ValidtateHandlingOfFrames -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.testNgTestCases.TestNgClass4@13deb50e]" name="afterClass" is-config="true" duration-ms="1" started-at="2021-10-14T02:45:50Z" finished-at="2021-10-14T02:45:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.testNgTestCases.TestNgClass3@4dfa3a9d]" name="afterTest" is-config="true" duration-ms="1" started-at="2021-10-12T02:24:24Z" finished-at="2021-10-12T02:24:24Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.testNgTestCases.TestNgClass4@13deb50e]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-10-14T02:45:50Z" finished-at="2021-10-14T02:45:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.testNgTestCases.TestNgClass4@13deb50e]" name="afterTest" is-config="true" duration-ms="0" started-at="2021-10-14T02:45:50Z" finished-at="2021-10-14T02:45:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.testNgTestCases.TestNgClass3@4dfa3a9d]" name="afterSuite" is-config="true" duration-ms="1" started-at="2021-10-12T02:24:24Z" finished-at="2021-10-12T02:24:24Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.testNgTestCases.TestNgClass4@13deb50e]" name="afterSuite" is-config="true" duration-ms="1" started-at="2021-10-14T02:45:51Z" finished-at="2021-10-14T02:45:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- com.testNgTestCases.TestNgClass3 -->
+      </class> <!-- com.testNgTestCases.TestNgClass4 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
