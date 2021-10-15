@@ -40,6 +40,7 @@ public class TestNgClass4 extends library{
   @Test(priority=-1)
   public void validateGMOonlineLoadedSuccessfully() {
 	  System.out.println("inside validateGMOonlineLoadedSuccessfully");
+	  waitForPageToLoad();
 	  String Actualtitle=driver.getTitle();
 	  String expectedtitle ="Welcome to Green Mountain Outpost";
 	  System.out.println(Actualtitle);
@@ -52,6 +53,7 @@ public class TestNgClass4 extends library{
 	  System.out.println("inside ValidateOnLineCatalogLoadedSuccessfully");
 	  //driver.findElement(By.name("bSubmit")).click();
 	  library.FindElement(Orep.EnterGmoONline).click();
+	  waitForPageToLoad();
 	  //driver.findElement(By.xpath("//input[@type='text' and @name='QTY_BACKPACKS']")).sendKeys(constants.FrameBackpackQty);
 	  library.FindElement(Orep.QTY_BACKPACKS).sendKeys(constants.FrameBackpackQty);
 	  //table/tbody/tr[3]/td[3]
@@ -63,12 +65,13 @@ public class TestNgClass4 extends library{
   }
   
   @Test(priority=1,dependsOnMethods={"ValidateOnLineCatalogLoadedSuccessfully"})
-  public void ValidatePriceCalculationInPlaceorderPage(){
+  public void ValidatePriceCalculationInPlaceorderPage() throws Exception{
 	  System.out.println("inside ValidatePriceCalculationInPlaceorderPage");
 	  String ActualTitle=driver.findElement(By.xpath("//h1[contains(text(),'Place Order')]")).getText();
-	  String ExpectedTile = "Place Order";
+	  String ExpectedTile = "Place Orde";
 	  //Assert.assertEquals(ActualTitle, ExpectedTile);
 	  SoftAssert sAssert = new SoftAssert();
+	 // library.takescreeshot(driver);
 	  sAssert.assertEquals(ActualTitle, ExpectedTile);
 	  String UnitPriceBackPack = driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]")).getText();
 	  String PriceQtyBackPack = UnitPriceBackPack.substring(2).trim();
@@ -86,6 +89,7 @@ public class TestNgClass4 extends library{
   public void ValidateHandlingAlerts(){
 	  System.out.println("inside ValidateHandlingAlerts");
 	  driver.get(objprop.getProperty("AlertURL"));
+	  waitForPageToLoad();
 	  driver.findElement(By.id("alertButton")).click();
 	  Alert objalertButton= driver.switchTo().alert();
 	  String alertButtonText=objalertButton.getText();
@@ -125,6 +129,7 @@ public class TestNgClass4 extends library{
   public void ValidtateHandlingOfFrames(){
 	  System.out.println("inside ValidtateHandlingOfFrames");
 	  driver.navigate().to(objprop.getProperty("FramesURL"));
+	  waitForPageToLoad();
 	  driver.switchTo().frame("singleframe");
 	  library.FindElement(Orep.SingleFrameTextBox).sendKeys("inside single frame");
 	  driver.switchTo().defaultContent();
@@ -146,6 +151,7 @@ public class TestNgClass4 extends library{
   @AfterMethod
   public void afterMethod() {
 	  System.out.println("inside afterMethod");
+	  
   }
 
   @BeforeClass
