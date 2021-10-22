@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -131,6 +132,33 @@ public class library {
 			search=By.linkText(value);
 		}
 		return driver.findElement(search);
+	}
+	
+	public static List<WebElement> FindElements(String OrepLocator){
+		By search=null;
+		System.out.println(OrepLocator); 
+		String locator = OrepLocator.split("&")[0];
+		String value = OrepLocator.split("&")[1];
+		System.out.println(locator);
+		System.out.println(value);
+		if(locator.equals("name")){
+			search=By.name(value);
+		}else if (locator.equals("id")){
+			search=By.id(value);
+		}else if (locator.equals("xpath")){
+			search=By.xpath(value);
+		}else if (locator.equals("tagName")){
+			search=By.tagName(value);
+		}else if (locator.equals("className")){
+			search=By.className(value);
+		}else if (locator.equals("partialLinkText")){
+			search=By.partialLinkText(value);
+		}else if (locator.equals("cssSelector")){
+			search=By.cssSelector(value);
+		}else if (locator.equals("linkText")){
+			search=By.linkText(value);
+		}
+		return driver.findElements(search);
 	}
 	
 	public static void waitForPageToLoad() {

@@ -15,14 +15,19 @@ import org.testng.annotations.BeforeClass;
 
 import static org.testng.Assert.assertEquals;
 
+import java.awt.Window;
 import java.io.FileNotFoundException;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -142,6 +147,92 @@ public class TestNgClass4 extends library{
 	  driver.switchTo().defaultContent();
 	  
   }
+  
+  @Test(priority=4)
+  public void ValidateHandlingWindows(){
+	  System.out.println("inside ValidateHandlingWinwods");
+	  driver.navigate().to(objprop.getProperty("WindowsURL"));
+	  waitForPageToLoad();
+	  Set<String> AllWindows=driver.getWindowHandles();
+	  String ParentWidnow=driver.getWindowHandle();
+	  int count=0;
+	  for(String Individualwindow:AllWindows){
+		  driver.switchTo().window(Individualwindow);
+		  count++;
+		  String title=driver.getTitle();
+		  System.out.println("title: "+title);
+		  if((count==2) && title.equals("Tech Mahindra")){
+			  driver.manage().window().maximize();
+		  } 
+		  if((count==3) && title.equals("Tech Mahindra")){
+			  driver.close();  // close the current window
+		  }
+		//driver.quit(); to close all windows 
+	  }
+  }
+  
+  @Test(priority=5)
+  public void ValidateHandlingOfWebTable(){
+	  System.out.println("inside ValidateHandlingWinwods");
+	  driver.navigate().to(objprop.getProperty("WebTableURL"));
+	  waitForPageToLoad();
+	  
+	  List<WebElement> AllLastNames=library.FindElements(Orep.listOfLastNamesInWebTable);
+	  //System.out.println(AllLastNames);
+	  for(int i=0;i<=AllLastNames.size()-1;i++){
+		  String lastname=AllLastNames.get(i).getText();
+		  System.out.println(lastname);
+		  if(lastname.equals("Kelly"))
+		  {
+			  int rowvalue=i+1;
+			  String Salary = driver.findElement(By.xpath("//table[@id='example']/tbody/tr["+rowvalue+"]/td[7]")).getText();
+			  System.out.println(Salary);
+			  String StateDate = driver.findElement(By.xpath("//table[@id='example']/tbody/tr["+rowvalue+"]/td[6]")).getText();
+			  System.out.println(StateDate);
+		  }
+	  }
+	  
+	//table[@id='example']
+  }
+  
+  @Test(priority=6)
+  public void ValidateMouseOperationRightClick(){
+	  System.out.println("inside ValidateMouseOperationRightClick");
+	  driver.navigate().to(objprop.getProperty("mouseOpeartionRightClick"));
+	  waitForPageToLoad();
+	  Actions obj = new Actions(driver);
+	  WebElement RightClick=library.FindElement(Orep.MouseOpearationRightClick);
+	  obj.contextClick(RightClick).build().perform();
+	  library.FindElement(Orep.copy).click();
+	  Alert AcceptingAlert= driver.switchTo().alert();
+	  String textOfAlert=AcceptingAlert.getText();
+	  System.out.println(textOfAlert);
+	  Assert.assertEquals(textOfAlert, "clicked: copy");
+	  AcceptingAlert.accept();
+  }
+  
+  @Test(priority=6)
+  public void ValidatemouseOpeartionDoubleClick(){
+	  System.out.println("inside ValidatemouseOpeartionDoubleClick");
+	  driver.navigate().to(objprop.getProperty("mouseOpeartionDoubleClick"));
+	  waitForPageToLoad();
+	  JavascriptExecutor js = (JavascriptExecutor)driver;
+	 // js.executeScript("window.scrollBy(0,1000)");//To scroll vertically Down by 1000 pixels
+	 // js.executeScript("window.scrollBy(0,-500)");//To scroll vertically Up by 500 pixels
+	 // js.executeScript("window.scrollBy(500,0)");//To scroll horizontally right by 500 pixels
+	 // js.executeScript("window.scrollBy(-500,0)");//To scroll horizontally left by 500 pixels
+	  
+	  WebElement element= library.FindElement(Orep.MouseOpearationDemoSection);
+	  js.executeScript( "arguments[0].scrollIntoView();" , element );
+	  driver.switchTo().frame(0);
+	  Actions obj = new Actions(driver);
+	  WebElement DoubleCLick=library.FindElement(Orep.MouseOpearationdoubleClick);
+	  obj.doubleClick(DoubleCLick).build().perform();
+	  driver.switchTo().defaultContent();
+	  
+  }
+  
+  
   
   @BeforeMethod
   public void beforeMethod() {

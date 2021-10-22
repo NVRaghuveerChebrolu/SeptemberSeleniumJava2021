@@ -18,7 +18,7 @@ public class reverseEachWordInString {
 		System.out.println(count);
 		for (String word:words){
 			StringBuilder obj = new StringBuilder(word);
-			String reverseWord="";
+			String reverseWord = "";
 			obj.reverse();
 			reverseWord=reverseWord+obj.toString()+" ";
 			System.out.println(reverseWord);
