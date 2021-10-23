@@ -16,5 +16,13 @@ public class Orep {
 	public static final String copy=constants.xpath+"&"+"//ul[@class='context-menu-list context-menu-root']/li[3]/span[contains(text(),'Copy')]";
 	public static final String MouseOpearationDemoSection=constants.xpath+"&"+"//div[@class='demo code-demo']";
 	public static final String MouseOpearationdoubleClick=constants.xpath+"&"+"//span[text()='Double click the block']/preceding-sibling::div";
+	public static final String draggable=constants.ID+"&"+"draggable";
+	public static final String droppable=constants.ID+"&"+"droppable";
+	public static final String dropText=constants.xpath+"&"+"//div[@id='droppable']/p";
+	public static final String Drag_And_Drop_Frame=constants.xpath+"&"+"//iframe[@src='/resources/demos/droppable/default.html']";
+	
+	
+	
+	
 	
 }
