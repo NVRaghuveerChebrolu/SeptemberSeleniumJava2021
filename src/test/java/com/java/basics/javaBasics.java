@@ -15,6 +15,7 @@ public class javaBasics {
 	}
 	
 	public static void main(String[] args) {
+		//System.out.println(s);
 		String str= "hello";
 		System.out.println("Hi my first program in java");
 		

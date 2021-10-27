@@ -262,21 +262,14 @@ public class TestNgClass4 extends library {
 		driver.switchTo().frame(frameElement);
 		Actions obj = new Actions(driver);
 		WebElement source = library.FindElement(Orep.draggable);
-		WebElement target =	library.FindElement(Orep.draggable)	;
-		
-		obj.dragAndDrop(source, target).build().perform();
-		
-		
-		/*obj.clickAndHold(target);
+		WebElement target =	library.FindElement(Orep.droppable)	;
+		//obj.dragAndDrop(source, target).build().perform();
+		obj.clickAndHold(source);
 		obj.moveToElement(target);
-		obj.release(target);*/
-		
+		obj.release(target).build().perform();
 		String ActualDroppedtext= library.FindElement(Orep.dropText).getText();
 		Assert.assertEquals(ActualDroppedtext, "Dropped");
 		driver.switchTo().defaultContent();
-		
-		
-
 	}
 
 	@BeforeMethod
