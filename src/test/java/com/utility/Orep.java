@@ -21,6 +21,35 @@ public class Orep {
 	public static final String dropText=constants.xpath+"&"+"//div[@id='droppable']/p";
 	public static final String Drag_And_Drop_Frame=constants.xpath+"&"+"//iframe[@src='/resources/demos/droppable/default.html']";
 	
+	public static final String FileUpload= constants.xpath+"&"+"//input[@id='input-4']/preceding-sibling::span";
+	public static final String FileDownload= constants.xpath+"&"+"//a[@download='file-sample_100kB.doc']";
+	
+	public static final String DataDrivenFirstName= constants.xpath+"&"+"//input[@placeholder='First Name']";
+	public static final String DataDrivenLastName= constants.xpath+"&"+"//input[@placeholder='Last Name']";
+	public static final String DataDrivenAddress= constants.xpath+"&"+"//textarea[@ng-model='Adress']";
+	public static final String DataDrivenEmail_address= constants.xpath+"&"+"//*[@ng-model='EmailAdress']";
+	public static final String DataDrivenPhoneNum= constants.xpath+"&"+"//*[@ng-model='Phone']";
+	public static final String DataDrivenGenderMale= constants.xpath+"&"+"//*[@value='Male']";
+	public static final String DataDrivenGenderFemale= constants.xpath+"&"+"//*[@value='FeMale']";
+	public static final String DataDrivenHobbiesCricket = constants.ID+"&"+"checkbox1";
+	public static final String DataDrivenHobbiesMovies= constants.ID+"&"+"checkbox2";
+	public static final String DataDrivenHobbiesHockey= constants.ID+"&"+"checkbox3";
+	public static final String DataDrivenLaungages= constants.ID+"&"+"msdd";
+	public static final String DataDrivenSkills= constants.ID+"&"+"Skills";
+	public static final String DataDrivenCountry= constants.ID+"&"+"countries";
+	public static final String DataDrivenSelectCntry= constants.xpath+"&"+"//span[@role='combobox']";
+	public static final String DataDrivenDOB_YY= constants.xpath+"&"+"//select[@placeholder='Year']";
+	public static final String DataDrivenDOB_MM= constants.xpath+"&"+"//select[@placeholder='Month']";
+	public static final String DataDrivenDOB_DD= constants.xpath+"&"+"//select[@placeholder='Day']";
+	public static final String DataDrivenPwd= constants.ID+"&"+"firstpassword";
+	public static final String DataDrivenConfirmPassword= constants.ID+"&"+"secondpassword";
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
