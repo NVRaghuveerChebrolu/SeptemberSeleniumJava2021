@@ -242,4 +242,15 @@ public class library {
 		return source.toString();
 	}
 	
+	public static void SelectValueFromDropDown(List<WebElement> AllItems, String DropDownValue) {
+		for(int i=0;i<AllItems.size();i++){
+			String dropdownIndividualValue = AllItems.get(i).getText();
+			if(dropdownIndividualValue.equalsIgnoreCase(DropDownValue)){
+				JavascriptExecutor jse = (JavascriptExecutor)driver;
+				jse.executeScript("arguments[0].click()", AllItems.get(i));
+				//AllItems.get(i).click();
+			}
+		}
+	}
+	
 }

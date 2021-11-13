@@ -40,6 +40,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -47,6 +48,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestListener;
@@ -367,6 +369,7 @@ public class TestNgClass4 extends library {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void ValidateDataDrivenTesting() throws Exception{
 		System.out.println("inside ValidateDataDrivenTesting");
@@ -396,6 +399,58 @@ public class TestNgClass4 extends library {
 				}else{
 					library.FindElement(Orep.DataDrivenGenderFemale).click();
 				}
+				String Hobbies = testData.get("Hobbies");
+				if(Hobbies.equals("Cricket")){
+					library.FindElement(Orep.DataDrivenHobbiesCricket).click();
+				}else if(Hobbies.equals("Movies")){
+					library.FindElement(Orep.DataDrivenHobbiesMovies).click();
+				}else if(Hobbies.equals("Hockey")){
+					library.FindElement(Orep.DataDrivenHobbiesHockey).click();
+				}
+				
+				library.FindElement(Orep.DataDrivenLaungages).click();
+				List<WebElement> AllLanguages= library.FindElements(Orep.DataDriven_All_laungages);
+				String multipleLanuages[] = testData.get("Languages").split("&");
+				for (String language:multipleLanuages){
+					System.out.println(language.trim());
+					SelectValueFromDropDown(AllLanguages,language.trim());
+				}
+				
+				library.FindElement(Orep.DataDrivenCickSkillstag).click();
+				
+				library.FindElement(Orep.DataDrivenSkills).click();
+				List<WebElement> AllSkills= library.FindElements(Orep.DataDrivenAllskills);
+				SelectValueFromDropDown(AllSkills,testData.get("Skills"));
+				
+				library.FindElement(Orep.DataDrivenSelectCntry).click();
+				List<WebElement> AllCountries= library.FindElements(Orep.DataDrivenAllCntries);
+				//Declare and initialise a fluent wait
+				FluentWait wait = new FluentWait(driver);
+				//Specify the timout of the wait
+				wait.withTimeout(60, TimeUnit.SECONDS);
+				//Sepcify polling time
+				wait.pollingEvery(250, TimeUnit.MILLISECONDS);
+				//Specify what exceptions to ignore
+				wait.ignoring(StaleElementReferenceException.class);
+
+				//This is how we specify the condition to wait on.
+				wait.until(ExpectedConditions.visibilityOfAllElements(AllCountries));
+				SelectValueFromDropDown(AllCountries,testData.get("SelectCntry"));
+				
+				library.FindElement(Orep.DataDrivenDOB_YY).click();
+				List<WebElement> AllYears= library.FindElements(Orep.DataDrivenAllYears);
+				SelectValueFromDropDown(AllYears,testData.get("SelectCntry"));
+				
+				library.FindElement(Orep.DataDrivenDOB_MM).click();
+				List<WebElement> AllMonths= library.FindElements(Orep.DataDrivenAllMonths);
+				SelectValueFromDropDown(AllMonths,testData.get("SelectCntry"));
+				
+				library.FindElement(Orep.DataDrivenDOB_DD).click();
+				List<WebElement> AllDays= library.FindElements(Orep.DataDrivenAllDays);
+				SelectValueFromDropDown(AllDays,testData.get("SelectCntry"));
+				
+				library.FindElement(Orep.DataDrivenPwd).sendKeys(testData.get("Password"));
+				library.FindElement(Orep.DataDrivenConfirmPassword).sendKeys(testData.get("confirmPasspwd"));
 			}
 			
 			
@@ -406,7 +461,7 @@ public class TestNgClass4 extends library {
 		
 	}
 	
-	
+
 	private HashMap<String, String> ReadTestData(int rowNumber, XSSFSheet objSheet) {
 		
 		DataFormatter Format = new DataFormatter();					

@@ -35,12 +35,27 @@ public class Orep {
 	public static final String DataDrivenHobbiesMovies= constants.ID+"&"+"checkbox2";
 	public static final String DataDrivenHobbiesHockey= constants.ID+"&"+"checkbox3";
 	public static final String DataDrivenLaungages= constants.ID+"&"+"msdd";
+	public static final String DataDriven_All_laungages= constants.xpath+"&"+"//div[@id='msdd']/following-sibling::div/ul/li";
+	
+	public static final String DataDrivenCickSkillstag= constants.xpath+"&"+"//label[contains(text(),'Skills')]";
+	
 	public static final String DataDrivenSkills= constants.ID+"&"+"Skills";
+	public static final String DataDrivenAllskills= constants.xpath+"&"+"//select[@id='Skills']/option";
+	
 	public static final String DataDrivenCountry= constants.ID+"&"+"countries";
 	public static final String DataDrivenSelectCntry= constants.xpath+"&"+"//span[@role='combobox']";
+	public static final String DataDrivenAllCntries= constants.xpath+"&"+"	//*[@id='select2-country-results']/li";
+
 	public static final String DataDrivenDOB_YY= constants.xpath+"&"+"//select[@placeholder='Year']";
+	public static final String DataDrivenAllYears = constants.xpath + "&"+ "//*[@id='yearbox']/option";
+	
+	
 	public static final String DataDrivenDOB_MM= constants.xpath+"&"+"//select[@placeholder='Month']";
+	public static final String DataDrivenAllMonths= constants.xpath+"&"+"//select[@placeholder='Month']/option";
+	
 	public static final String DataDrivenDOB_DD= constants.xpath+"&"+"//select[@placeholder='Day']";
+	public static final String DataDrivenAllDays= constants.xpath+"&"+"//select[@id='daybox']/option";
+	
 	public static final String DataDrivenPwd= constants.ID+"&"+"firstpassword";
 	public static final String DataDrivenConfirmPassword= constants.ID+"&"+"secondpassword";
 	
