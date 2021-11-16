@@ -46,6 +46,9 @@ public class Orep {
 	public static final String DataDrivenSelectCntry= constants.xpath+"&"+"//span[@role='combobox']";
 	public static final String DataDrivenAllCntries= constants.xpath+"&"+"	//*[@id='select2-country-results']/li";
 
+	public static final String DataDrivenTextAreacountry= constants.xpath+"&"+"//input[@type='search']";
+	
+	
 	public static final String DataDrivenDOB_YY= constants.xpath+"&"+"//select[@placeholder='Year']";
 	public static final String DataDrivenAllYears = constants.xpath + "&"+ "//*[@id='yearbox']/option";
 	

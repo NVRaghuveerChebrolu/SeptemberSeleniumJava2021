@@ -28,6 +28,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +36,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Alert;
@@ -383,6 +385,7 @@ public class TestNgClass4 extends library {
 			System.out.println("NumberOfRows: "+NumberOfRows);
 			for (int rowNumber =1 ;rowNumber<=NumberOfRows;rowNumber++){
 				testData = ReadTestData(rowNumber,ObjSheet);
+				if (testData.get("RunMode").equals("Yes")) {
 				library.FindElement(Orep.DataDrivenFirstName).clear();
 				library.FindElement(Orep.DataDrivenFirstName).sendKeys(testData.get("Firstname"));
 				library.FindElement(Orep.DataDrivenLastName).clear();
@@ -435,7 +438,12 @@ public class TestNgClass4 extends library {
 
 				//This is how we specify the condition to wait on.
 				wait.until(ExpectedConditions.visibilityOfAllElements(AllCountries));
-				SelectValueFromDropDown(AllCountries,testData.get("SelectCntry"));
+				//SelectValueFromDropDown(AllCountries,testData.get("SelectCntry"));
+				
+				library.FindElement(Orep.DataDrivenTextAreacountry).sendKeys(testData.get("SelectCntry"));
+				Robot objrobot = new Robot();
+				objrobot.keyPress(KeyEvent.VK_ENTER);
+				objrobot.keyRelease(KeyEvent.VK_ENTER);
 				
 				library.FindElement(Orep.DataDrivenDOB_YY).click();
 				List<WebElement> AllYears= library.FindElements(Orep.DataDrivenAllYears);
@@ -449,11 +457,21 @@ public class TestNgClass4 extends library {
 				List<WebElement> AllDays= library.FindElements(Orep.DataDrivenAllDays);
 				SelectValueFromDropDown(AllDays,testData.get("SelectCntry"));
 				
+				library.FindElement(Orep.DataDrivenPwd).clear();
 				library.FindElement(Orep.DataDrivenPwd).sendKeys(testData.get("Password"));
+				library.FindElement(Orep.DataDrivenConfirmPassword).clear();
 				library.FindElement(Orep.DataDrivenConfirmPassword).sendKeys(testData.get("confirmPasspwd"));
+				
+				FileOutputStream Fileoutput = new FileOutputStream(new File (System.getProperty("user.dir")+"//src//test//resources//AutomationDemoSite.xlsx"));
+				WriteToExcel(rowNumber,ObjWorkBook,ObjSheet);
+				ObjWorkBook.write(Fileoutput);
+				Fileoutput.close();
+			}else {
+				System.out.println("RunMode is not marked as Yes . Hence Skipiing this Row/TestCase");
 			}
-			
-			
+			}
+			ObjWorkBook.close();
+			objFileinput.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -461,6 +479,19 @@ public class TestNgClass4 extends library {
 		
 	}
 	
+
+	private void WriteToExcel(int rowNumber, XSSFWorkbook ObjWorkBook,XSSFSheet objSheet) {
+
+		objSheet = ObjWorkBook.getSheet("TestData");
+		XSSFCellStyle CellStyle = ObjWorkBook.createCellStyle();
+		// CellStyle.setBorderBottom(XSSFCellStyle.BORDER_THIN);
+		System.out.println("Row Number in excel is :" + rowNumber);
+
+		objSheet.getRow(rowNumber).createCell(18).setCellValue("PASS");
+		objSheet.getRow(rowNumber).getCell(18).setCellStyle(CellStyle);
+
+		
+	}
 
 	private HashMap<String, String> ReadTestData(int rowNumber, XSSFSheet objSheet) {
 		
@@ -493,7 +524,7 @@ public class TestNgClass4 extends library {
 	
 		testData.put("Password", objSheet.getRow(rowNumber).getCell(16).getStringCellValue());
 		testData.put("confirmPasspwd", objSheet.getRow(rowNumber).getCell(17).getStringCellValue());
-		testData.put("Result", objSheet.getRow(rowNumber).getCell(18).getStringCellValue());
+		//testData.put("Result", objSheet.getRow(rowNumber).getCell(18).getStringCellValue());
 		
 		System.out.println("-----------------------------------");
 		System.out.println(testData.get("RunMode"));
