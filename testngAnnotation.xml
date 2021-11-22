@@ -3,10 +3,10 @@
 	<test name="Test">
 		<classes>
 			<class name="com.testNgConcepts.TestNgClass1" />
-			<!-- <methods>
+			<methods>
 				<include name="Testcase3"></include>
 				<include name="Testcase5"></include>
-			</methods> -->
+			</methods>
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
