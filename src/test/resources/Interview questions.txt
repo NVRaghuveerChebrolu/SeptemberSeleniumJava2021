@@ -1,0 +1,71 @@
+1. Tell me about your professional Experiecne ?
+My name is ____ having 5 + years of exp in banking/telecom/insurance/healthcare in manual and autoamtion testing using selenium along with java.
+i am having exp in selenium with java , exp in CI tool like jenkins, Defect management tool like HPALM and Test management tool like JIRA.
+API tol like postman, database like mysql.  
+
+I am experience of designing the hybrid framework from scratch using test testng,POM,DataDrivena and Keyword Driven.
+I am also exposure to DBB Cucumber.
+
+2. Explain me about your framework ?
+
+3. Explain me about your Project ?
+
+My project is a banking project . i am a part of SDET team . we are into personal banking where end users are going to use our apllication accross diferrent regions
+(europe and asia). we are making some enhacements to the existing project and maitaining the regression scripts. Accrding to the region the application 
+flow will be different.
+  
+
+Selenium Interview Questions
+
+1. What are the locators in selenium ? which locaotr is prefered (id or name) and which locator is faster ?(id, css, relative x path)
+2. What are types of waits in selenium ? (how will u resole application is slow and inetrnet is slow , how will your scripts to work)
+3. Explain selenium suite?
+4. Explain selenium hierarchy?
+5. Selenium 3 and selenium 4 differences ?
+6. what are the features included in selenium 4
+5. how will u handle dropdowns?
+6. how will u handle frames? (what is the tagname of frames)
+7. how will hadle windows?
+8. how will execute scripts in healess mode?
+9. how will handle mouse operrations.
+10.Webtable related questions based on the scenraio
+11. alerts
+12. what is data driven and when u should for data driven (for buk data we should go for data driven) . Expalin what are the classes used ? (APache POI bibrary)
+13. what is POM. what is the purpose of it ? (To obtain object repository (locators in one location/file)) and use with @findBy annotation ?
+
+14. order of executions of annotations in testNg  (@Before STC M @Test M CTS @After)
+15. if there is 10 test cases , and i want to execute only 3 of them , how to execute ? (configure testng.xml file and inclucde 3 test methods)
+16. if there is 10 test cases , and i dont want want execute 3 of them , how to execute ? (go to the testng class class and @Test(enabled = 'false')
+17. what is the purpose of data provider and when u will use it ? (applicable for one @Test)
+18. what is the return type of data provider ? [][] 
+19. what is the purpose of page factory and when u will use it ?(applicable for all @Test present in class) 
+20. what is the return type of factory? []
+
+21. what are the types of xpaths?
+
+22. what are the API's (soap and rest)
+23. API tools (postman and Soap UI)
+24. How to automate API(Rest Assured Library, karate, cypress(both API and UI web applications) 
+
+26. explian BDD cucumber ?
+Feature files ( scenario , Given, When and Then)
+Step Defination files(wefo are ging to write scripts for each and every guven , when and then)
+Runner file (cucumber options) 
+(using scenrio outline we can achieve data driven apporach)
+
+27. how will to identify broken links( if tehre are  25 links n webpage , how will you test and identify links which are working and which are not working)
+28. will selneium handle windiws based opop up (file explorer) ? No , but with help of Auto IT, Sikuli or Robot Class (File Upload))
+29. which cannot be autoamted or not suppose to be autoamted ( bar code, OTP, end user identication/autherntication)
+30. how will execute the scripts in parallely ?
+31. how to seggregate the scripts scripts according to groups ?
+32. how will execute the failed scripts in selenium/tests ? (testng by default it will be generating failed-testg.xml)
+33. how will you execute the scrips in multiple browsers ?(firefox , chrome , IE) (selenium Grid, master and slave architecire)
+
+what are collections using , u are familiar with (list, set and hash map)
+Java :
+
+34. static, this, constructor, super,
+35.basics programs related to string
+36. OOPS concepts (abstraction , inheritance , poly morphism, interfaces)
+
+37. go through all the files present in src/test/resources.

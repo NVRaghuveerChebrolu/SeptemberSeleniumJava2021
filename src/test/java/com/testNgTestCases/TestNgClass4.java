@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
+
 import com.utility.Orep;
 import com.utility.constants;
 import com.utility.library;
@@ -370,6 +371,26 @@ public class TestNgClass4 extends library {
 		obj_File.deleteOnExit();
 
 	}
+	
+	@Test(priority = 13)
+	public void ValidateBrokenLinks() {
+		System.out.println("inside ValidateBrokenLinks");
+		extenttest = extentReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
+		driver.navigate().to(objprop.getProperty("Links"));
+		waitForPageToLoad();
+		List<WebElement> AllLinks = library.FindElements(Orep.links);
+		for (int i = 1; i < AllLinks.size(); i++) {
+			WebElement IndividualLink = AllLinks.get(i);
+			String IndividualLinkUrl = IndividualLink.getAttribute("href");
+			try {
+				library.verifyinglinks(IndividualLinkUrl);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 
 	@SuppressWarnings("deprecation")
 	@Test
@@ -489,8 +510,6 @@ public class TestNgClass4 extends library {
 
 		objSheet.getRow(rowNumber).createCell(18).setCellValue("PASS");
 		objSheet.getRow(rowNumber).getCell(18).setCellStyle(CellStyle);
-
-		
 	}
 
 	private HashMap<String, String> ReadTestData(int rowNumber, XSSFSheet objSheet) {
@@ -611,5 +630,7 @@ public class TestNgClass4 extends library {
 	public void afterSuite() {
 		System.out.println("inside afterSuite");
 	}
+	
+	
 
 }

@@ -21,6 +21,8 @@ public class Orep {
 	public static final String dropText=constants.xpath+"&"+"//div[@id='droppable']/p";
 	public static final String Drag_And_Drop_Frame=constants.xpath+"&"+"//iframe[@src='/resources/demos/droppable/default.html']";
 	
+	public static final String links=constants.tagName+"&"+"a";
+	
 	public static final String FileUpload= constants.xpath+"&"+"//input[@id='input-4']/preceding-sibling::span";
 	public static final String FileDownload= constants.xpath+"&"+"//a[@download='file-sample_100kB.doc']";
 	

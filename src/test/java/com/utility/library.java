@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -147,6 +149,24 @@ public class library {
 	}	
 	}
 
+	public static void verifyinglinks(String Url) throws Exception {
+		try {
+			URL obj = new URL(Url);
+			HttpURLConnection objHttpConnection = (HttpURLConnection) obj.openConnection();
+			objHttpConnection.connect();
+			int ResponseCode = objHttpConnection.getResponseCode();
+			if (ResponseCode >= 400 && ResponseCode < 600) {
+				System.out.println(Url + ": " + "ResponseCode:" + ResponseCode + " is not a valid Link");
+			} else if (ResponseCode >= 200 && ResponseCode < 400) {
+				System.out.println(Url + ": " + "ResponseCode:" + ResponseCode + " is a valid Link");
+			}
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 	public static WebElement FindElement(String OrepLocator){
 		By search=null;
 		System.out.println(OrepLocator); 
